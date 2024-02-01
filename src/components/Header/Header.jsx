@@ -4,7 +4,6 @@ import Logo from '../Logo/Logo'
 import { Link } from 'react-router-dom';
 function Header() {
   const user = JSON.parse(localStorage.getItem('userData'));
-  console.log(user,'header');
   return (
     <div className='HeaderBlock'>
       <div className='LeftSide'>     
