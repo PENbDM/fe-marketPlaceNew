@@ -1,0 +1,49 @@
+import { useState,useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import ItemsPage from "./Pages/Items";
+import Cart from "./Pages/Cart";
+import Home from './Pages/Home/Home';
+import User from "./Pages/User/User";
+import UserMain from "./Pages/User/UserMain";
+function App() {
+  const user = JSON.parse(localStorage.getItem('userData'));
+  const [isAuth,setAuth] = useState(false)
+  useEffect(()=>{
+    if(user!==null){
+      setAuth(true)
+    }
+  })
+  console.log(isAuth,'from app js');
+  return (
+        <Routes>
+        <Route path="/" element={<Home />} />
+        {user ? (
+          <Route path="/auth" element={<Navigate to="/user" />} />
+        ) : (
+          <Route path="/auth" element={<User setAuth={setAuth} />} />
+        )}
+
+        {user ? (
+          <Route path="/user" element={<UserMain setAuth={setAuth} />} />
+        ) : (
+          <Route path="/user" element={<Navigate to="/auth" />} />
+        )}
+        {user ? (
+          <Route path="/cart" element={<Cart/>}/>
+        ) : (
+          <Route path="/cart" element={<Navigate to='/'/>}/>
+        )}
+        {user ? (
+          <Route path="/items" element={<ItemsPage />}/>
+        ) : (
+          <Route path="/items" element={<Navigate to='/'/>}/>
+        )}
+
+      </Routes>
+
+  
+  );
+}
+
+export default App;
+

@@ -1,0 +1,72 @@
+.UserBlock{
+    margin: 0 auto;
+    width: 1600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.userHeader{
+    margin-left: 20px;
+    margin-bottom: 100px;
+}
+
+.userAuth{
+    margin: 0 auto;
+    width: 600px;
+    height: 300px;
+    border: 1px solid gray;
+}
+.formM{
+    margin: 40px auto 0;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    align-self: center;
+}
+.blockInfo{
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    margin: 20px  auto 0;
+    justify-content: space-between;
+}
+.submitBlock{
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: center;
+}
+.errorLogin{
+    margin-top: 10px;
+}
+label{
+    
+    padding: 10px;
+}
+input{
+    height: 22px;
+}
+
+.userMain{     
+display: flex;
+flex-direction: column;
+}
+
+.userMain-info{
+    display: flex;
+    width: 1550px;
+    margin: 40px auto 0;
+    
+}
+.userInfo{
+    font-size: 30px;
+    margin-left: 30px;
+}
+.LogOutBlock{
+    margin-left: auto; 
+}
+.btn-logout{
+    width: 100px;
+    height: 30px;
+}

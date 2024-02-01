@@ -1,0 +1,30 @@
+.HeaderBlock{
+    margin: 0 auto;
+    display: flex;
+    width: 1600px
+}
+.LeftSide{
+    margin-left: 20px;
+    width: 40%;
+display: flex;
+}
+.RightSide{
+    align-items: center;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+.RightSideUs{
+    align-items: center;
+    width: 60%;
+    display: flex;
+justify-content: flex-end;}
+.btn-home{
+    width: 100px;
+    height: 50px;
+}
+.btn-user{
+    width: 100px;
+    height: 50px;
+    margin-right: 20px;
+}

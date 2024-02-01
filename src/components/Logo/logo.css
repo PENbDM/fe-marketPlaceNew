@@ -1,0 +1,8 @@
+.LogoBlock{
+    display: flex;
+    align-items: center;
+}
+.logo-link {
+    text-decoration: none;
+    color: inherit; 
+  }
