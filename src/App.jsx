@@ -1,5 +1,7 @@
 import { useState,useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { createContext } from 'react'
+import { UserContext } from './Context.jsx'
 import ItemsPage from "./Pages/Items";
 import Cart from "./Pages/Cart";
 import Home from './Pages/Home/Home';
@@ -13,8 +15,8 @@ function App() {
       setAuth(true)
     }
   })
-  console.log(isAuth,'from app js');
   return (
+        <UserContext.Provider value={{user,setAuth}} >
         <Routes>
         <Route path="/" element={<Home />} />
         {user ? (
@@ -38,8 +40,8 @@ function App() {
         ) : (
           <Route path="/items" element={<Navigate to='/'/>}/>
         )}
-
       </Routes>
+      </UserContext.Provider>
 
   
   );

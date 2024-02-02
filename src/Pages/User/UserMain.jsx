@@ -2,21 +2,25 @@ import React, { useEffect } from 'react'
 import Header from '../../components/Header/Header';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useContext } from 'react';
+import { UserContext } from '../../Context';
+function UserMain() {
+  const userConsume = useContext(UserContext)
+  const user = userConsume.user;
 
-function UserMain(props) {
+
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem('userData'));
   
   const handleLogOut = (e) => {
     e.preventDefault()
     localStorage.removeItem('userData');
-    props.setAuth(false)
+    userConsume.setAuth(false)
     navigate('/');
   }
  
   return (
     <div className='userMain'>
-      <Header user={user}/>
+      <Header />
       <div className='userMain-info'>
         <div className='userLogo'>
           <img src={user.avatar_url} width={200} height={200}/>

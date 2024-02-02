@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import './header.css'
 import Logo from '../Logo/Logo'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../Context';
 function Header() {
-  const user = JSON.parse(localStorage.getItem('userData'));
+  const userConsume = useContext(UserContext)
+  const user = userConsume.user;
   return (
     <div className='HeaderBlock'>
       <div className='LeftSide'>     

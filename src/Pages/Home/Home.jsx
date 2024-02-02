@@ -3,7 +3,6 @@ import Header from '../../components/Header/Header';
 import './home.css';
 
 function Home() {
-
   return (
     <div className='homeDiv'>
         <Header  />

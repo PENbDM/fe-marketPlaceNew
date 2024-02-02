@@ -3,10 +3,12 @@ import './user.css'
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import axios from 'axios';
+import { useContext } from 'react';
+import { UserContext } from '../../Context';
 
-
-function User(props) {
-
+function User() {
+  const userConsume = useContext(UserContext)
+  
   const [username, setUsername] = useState('');
   const [avatar, setAvatar] = useState('');
   const [isLoginMode, setLoginMode] = useState(true);
@@ -32,7 +34,7 @@ function User(props) {
           if (response.data && response.data.user) {
             setErrorLogin('')
             localStorage.setItem('userData', JSON.stringify(response.data.user));
-            props.setAuth(true)
+            userConsume.setAuth(true)
             navigate('/user'); 
 
           } else {
@@ -62,7 +64,7 @@ function User(props) {
         .get(`https://nc-marketplace-sem-1.onrender.com/api/users/${response.data.user.username}`).then((res)=>{
           setErrorLogin('')
           localStorage.setItem("userData", JSON.stringify(response.data.user));
-          props.setAuth(true)
+          userConsume.setAuth(true)
           navigate('/user');
         })
       })
